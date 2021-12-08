@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<TextView>(R.id.tv_hello_world).text = NativeLib().stringFromJNI()
 
-        findViewById<TextView>(R.id.tv_key).text = NativeLib().getSecretKey()
+        findViewById<TextView>(R.id.tv_key).text = NativeLib().getDecodedSecretKey()
         // 靜態方法呼叫
         findViewById<TextView>(R.id.tv_key_2).text = KeyHelper.secretKey
     }

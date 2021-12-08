@@ -18,7 +18,7 @@ class NativeLib {
      *
      * @return
      */
-    external fun getSecretKey(): String
+    external fun getDecodedSecretKey(): String
 
     companion object {
         // Used to load the 'nativelib' library on application startup.

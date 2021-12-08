@@ -1,5 +1,6 @@
 #include <jni.h>
 #include <string>
+#include "base64.h"
 
 extern "C" JNIEXPORT jstring JNICALL
 Java_tw_dh46_nativelib_NativeLib_stringFromJNI(
@@ -10,11 +11,12 @@ Java_tw_dh46_nativelib_NativeLib_stringFromJNI(
 }
 
 extern "C" JNIEXPORT jstring JNICALL
-Java_tw_dh46_nativelib_NativeLib_getSecretKey(
+Java_tw_dh46_nativelib_NativeLib_getDecodedSecretKey(
         JNIEnv *env,
         jobject) {
     std::string key = "VGhpcyBpcyBteSBzZWNyZXQga2V5Lg==";
-    return env->NewStringUTF(key.c_str());
+    std::string result = b64decode(key.c_str(), key.length());
+    return env->NewStringUTF(result.c_str());
 }
 
 extern "C" JNIEXPORT jstring JNICALL
